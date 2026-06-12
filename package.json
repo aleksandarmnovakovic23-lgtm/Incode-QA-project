@@ -1,0 +1,21 @@
+{
+  "name": "ae-playwright-tests",
+  "version": "1.0.0",
+  "description": "Playwright + TypeScript test suite for AutomationExercise.com — API & E2E",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test tests/api --reporter=list,html",
+    "test:e2e": "playwright test tests/e2e --reporter=list,html",
+    "test:ci": "playwright test --reporter=github,html",
+    "test:headed": "playwright test tests/e2e --headed --workers=1",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.12.0",
+    "typescript": "^5.4.5"
+  }
+}
