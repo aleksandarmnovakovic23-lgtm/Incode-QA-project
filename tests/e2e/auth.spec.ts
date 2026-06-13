@@ -34,7 +34,9 @@ test.describe('User Registration', () => {
 
   test('signup with an already-registered email shows an error', async ({ page }) => {
     const user = generateUser();
-    await page.request.post('/api/createAccount', { form: { ...user } });
+    const createRes = await page.request.post('/api/createAccount', { form: { ...user } });
+    const createBody = await createRes.json();
+    expect(createBody.responseCode, 'Pre-condition: account must exist before testing duplicate signup').toBe(201);
 
     const loginPage = new LoginPage(page);
     await loginPage.goto();
