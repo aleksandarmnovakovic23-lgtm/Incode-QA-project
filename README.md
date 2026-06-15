@@ -89,7 +89,6 @@ npx playwright test --grep "login"
 
 The `.github/workflows/ci.yml` workflow:
 
-- Triggers on push/PR to `main` / `develop` and on a daily schedule (06:00 UTC weekdays)
 - Runs **API tests** and **E2E tests** as parallel jobs
 - Uploads HTML reports and failure traces as artifacts (14-day retention)
 - Sets `retries: 2` in CI to absorb transient network flakiness against the live external server
